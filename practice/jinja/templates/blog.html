@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BLog</title>
+    </head>
+    <body>
+        {%for blog_post in posts: %}
+            {% if blog_post['id'] == num: %}
+                <h1>{{blog_post['title']}}</h1>
+                <h1>{{blog_post['subtitle']}}</h1>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
