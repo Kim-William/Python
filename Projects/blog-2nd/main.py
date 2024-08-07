@@ -269,8 +269,8 @@ def contact():
         print(data["email"])
         print(data["phone"])
         print(data["message"])
-        send_email(data["name"], data["email"], data["phone"], data["message"])
-        return render_template('contact.html', msg_sent=True)
+        result = send_email(data["name"], data["email"], data["phone"], data["message"])
+        return render_template('contact.html', msg_sent=result)
     return render_template("contact.html", msg_sent=False)
 
 def send_email(name, email, phone, message):
@@ -280,11 +280,13 @@ def send_email(name, email, phone, message):
             connection.starttls()
             connection.login(MASTER_EMAIL, MASTER_PASSWORD)
             connection.sendmail(MASTER_EMAIL, MASTER_EMAIL, email_message)
+        return True
     except Exception as e:
         print('error', e)
+        return False
     finally:
         print('email sent')
-    return render_template("contact.html", current_user=current_user)
+    
 
 
 if __name__ == "__main__":
