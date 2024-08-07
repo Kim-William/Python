@@ -1,0 +1,9 @@
+
+Projects/blog-2nd/.env
+/Projects/blog-2nd/.venv
+/Projects/blog-2nd/__pycache__
+Projects/blog-2nd/requirements.txt
+practice/RESTApi/.DS_Store
+practice/flask-auth/requirements.txt
+practice/RESTApi/requirements.txt
+Projects/blog-2nd/instance/posts.db
