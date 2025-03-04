@@ -16,7 +16,7 @@ import os
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
+app.config['SECRET_KEY'] = 'WKKIM_BLOG' #os.environ.get('FLASK_KEY')
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
@@ -148,7 +148,9 @@ def register():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
+    print('login method')
     form = LoginForm()
+    print('login set form')
     if form.validate_on_submit():
         password = form.password.data
         result = db.session.execute(db.select(User).where(User.email == form.email.data))
